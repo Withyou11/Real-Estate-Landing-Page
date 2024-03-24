@@ -74,6 +74,12 @@
       href="./assets/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./assets/favicon/manifest.json" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"
+    />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
       name="msapplication-TileImage"
@@ -85,23 +91,31 @@
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
   </head>
   <body>
-    <!-- Header -->
+    <!-- PC Header -->
     <header class="fixed-header">
       <div class="content">
         <nav class="navbar">
+          <!-- Tablet/Mobile Menu -->
+          <label for="menu-checkbox" class="toggle-menu">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+
           <!-- Logo -->
-          <a href="#home">
+          <a href="#home" class="logo">
             <img src="./assets/img/logo.svg" alt="Logo" />
           </a>
           <!-- Navigation -->
-          <ul>
+          <ul id="pc-nav">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#resources">Resources</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li class="show-on-mobile separate-1"><a href="#!">Sign in</a></li>
+            <li class="show-on-mobile"><a href="#!">Sign up</a></li>
           </ul>
 
           <!-- Action -->
@@ -112,6 +126,32 @@
         </nav>
       </div>
     </header>
+
+    <!-- Tablet/Mobile header -->
+    <header class="mobile-header">
+      <input
+        type="checkbox"
+        class="menu-checkbox"
+        name=""
+        id="menu-checkbox"
+        hidden
+      />
+
+      <!-- Overlay -->
+      <label class="menu-overlay" for="menu-checkbox"></label>
+
+      <!-- Menu content -->
+      <div class="menu-drawer">
+        <!-- Logo -->
+        <a href="#home">
+          <img src="./assets/img/logo.svg" alt="Logo" />
+        </a>
+
+        <!-- Navigation -->
+        <ul id="mobile-nav"></ul>
+      </div>
+    </header>
+
     <main id="home">
       <!-- Hero -->
       <div class="hero-wrap">
@@ -149,7 +189,7 @@
 
           <div class="row">
             <p class="desc">More than 45,000+ companies trust besnik</p>
-            <p class="desc">5 Star Ratings (2k+ Review)</p>
+            <p class="desc hide-on-mobile">5 Star Ratings (2k+ Review)</p>
           </div>
 
           <div class="images">
@@ -224,7 +264,7 @@
               <p class="desc">
                 Everything you need to know when you're looking
               </p>
-              <a href="" class="link">
+              <a href="#!" class="link">
                 <span>View All Properties</span>
                 <img src="./assets/img/arrow.svg" alt="" class="arrow" />
               </a>
@@ -314,6 +354,11 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="view-all show-on-mobile">
+            <a href="#!" class="btn">
+              <span>View All Properties</span>
+            </a>
           </div>
         </div>
       </div>
@@ -535,5 +580,10 @@
         </div>
       </div>
     </footer>
+    <script>
+      const pcNav = document.querySelector("#pc-nav");
+      const mobileNav = document.querySelector("#mobile-nav");
+      mobileNav.innerHTML = pcNav.innerHTML;
+    </script>
   </body>
 </html>
