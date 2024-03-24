@@ -255,7 +255,7 @@
     column-gap: 60px;
   }
 
-  .row .row-bottom {
+  .footer .row-bottom {
     row-gap: 24px;
     flex-direction: column;
     align-items: flex-start;
